@@ -4,7 +4,7 @@ import ErrorHandler from "./error.js";
 import {User} from  "../models/userSchema.js"
 
 export const isAuthorized=catchAsyncError(async(req,res,next)=>{
-    const {token}=req.cookies;
+    const {token}=req.body.token;
     if(!token){
        return next(new ErrorHandler("You are not authorized",400));
     }
